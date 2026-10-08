@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 flagged_extensions=("exe" "bat" "sh" "com")
 flagged_content=("virus" "trojan" "malware" "worm" "ransomware")
@@ -36,8 +36,6 @@ scandir()
 		fi
 	done
 }
-
-
 
 scandir "$1" "$2"
 ls -l "$1" > directory-info.last
