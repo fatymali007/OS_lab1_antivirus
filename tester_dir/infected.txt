@@ -1,0 +1,2 @@
+virus, trojan, malware, worm, ransomware
+
