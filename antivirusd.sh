@@ -30,7 +30,7 @@ scandir()
 			fi
 		done
 		if [ "$mal" = true ]
-		then 
+		then
 			echo "$file is malicious and it is DELETED"
 			mv "$file" "$mal_dir"
 		fi

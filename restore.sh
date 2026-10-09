@@ -56,7 +56,7 @@ idx=$?
 
 if [ "$idx" -eq 0 ]
 then
-	exit
+	exec "$0" "$@"
 else
 	pick="${malfiles[$idx]}"
 fi
@@ -83,3 +83,4 @@ else
 		exec "$0" "$@"
 	fi
 fi
+
