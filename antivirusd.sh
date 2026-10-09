@@ -1,6 +1,6 @@
 #!/bin/bash
 
-flagged_extensions=("exe" "bat" "sh" "com")
+flagged_extensions=("exe" "bat" "vbs" "scr" "ps1")
 flagged_content=("virus" "trojan" "malware" "worm" "ransomware")
 
 scandir()
@@ -15,7 +15,7 @@ scandir()
 
 		for flag in "${flagged_extensions[@]}"
 		do
-			if[ "$extension" ="$flag" ]
+			if [ "$extension" = "$flag" ]
 			then
 				mal=true
 				break
@@ -29,7 +29,7 @@ scandir()
 				break
 			fi
 		done
-		if [mal=true]
+		if [ "$mal" = true ]
 		then 
 			echo "$file is malicious and it is DELETED"
 			mv "$file" "$mal_dir"
