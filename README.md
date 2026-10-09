@@ -1,4 +1,4 @@
-This shell script is a simple antivirus daemon, which is a program that runs in the backround when innvocated, scanning target directories for malicious files periodically between equal predefined intervals.
+This shell script is a simplified antivirus daemon that runs in the backround when innvocated, scanning target directories for malicious files periodically between equal predefined intervals.
 
 WHAT FILES ARE CONSIDERED MALICIOUS:
 ------------------------------------
@@ -6,7 +6,7 @@ WHAT FILES ARE CONSIDERED MALICIOUS:
 • Flagged extension: the file's extension matches one of the following, hardcoded exactly as written: .exe, .bat, .vbs,
 .scr, .ps1.
 • Flagged content: the file's contents contain one of the following keywords (case-insensitive), hardcoded exactly as
-written: virus, trojan, malware, worm, ransomwar
+written: virus, trojan, malware, worm, ransomware
 
 ======================
 SCRIPTS AND CODES:
@@ -28,7 +28,7 @@ It writes in a file teh list of all the files included in the traget directory i
 The script runs infinitly scanning the target directory at certain predefined intervals until the script excution is stopped.
 During the loop's execution, a new file is created with the most recent run of the ls -l command. this is teh new modification info.
 
-Both files are compared using the condition { !cmp -s directory-info.last directory-info.new} command which returns 0 if the files are identical and 1 if the files are different; since shell treats 0 as success, teh condition is only true for different files.scandir is run in case a recent modification was done to teh directory making the condition true.
+Both files are compared using the condition { !cmp -s directory-info.last directory-info.new} command which returns 0 if the files are identical, 1 if the files are different and more than 1 if there is an error; since shell treats 0 as success, teh condition is only true for different files.scandir is run in case a recent modification was done to teh directory making the condition true.
 
 Whether a scan was performed or not the loop waits for a specified time interval before it repeats teh comparison again using {sleep "<interval_in_s>"} command.
 
@@ -91,8 +91,8 @@ note: {make} will only run teh pre-build command since its a dependancy and will
 USING TEH ANTIVIRUS:
 ====================
 
-since both teh scripts are infinite and recursive teh run can only be stopped by a user {ex: Ctrl+Z}
-Both processes cannot run simultaneously, think about it, if a file is restores teh nest loop in the antivirus script will delete it again and will undo teh restoration.
+since both teh scripts are infinite and recursive teh run can only be stopped or suspended by the user {ex: Ctrl+Z}
+Both processes cannot run simultaneously, think about it, if a file is restores the nested loop in the antivirus script will delete it again and will undo teh restoration.
 
 ARRAYS OF FLAGS:
 ----------------
