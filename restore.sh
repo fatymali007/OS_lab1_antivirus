@@ -52,9 +52,9 @@ Deletefile(){
 
 dir=$1
 maldir=$2
-#when the directory is empty the literal name along with the glob operator are stored as first entry and in teh code considered first file.
+
 shopt -s nullglob
-#this disables that and shows the drectory is empty.when it is enabled the array doesnt contain teh literal by default.
+
 malfiles=("$maldir"/*)
 
 listfiles "${malfiles[@]}"
