@@ -49,6 +49,6 @@ do
 	then
 		scandir "$1" "$2"
 	fi
-
+	printf "SCAN DONE ;)\n"
 	cp directory-info.new directory-info.last
 done 
